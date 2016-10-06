@@ -1,5 +1,5 @@
-- name: Set up NodeSource
-  shell: curl -sL https://deb.nodesource.com/setup | sudo bash -
+- name: Set up NodeSource (6.x)
+  shell: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 
 - name: Install Node.js package
   apt: pkg=nodejs update_cache=yes
