@@ -1,0 +1,14 @@
+- name: Set up NodeSource
+  shell: curl -sL https://deb.nodesource.com/setup | sudo bash -
+
+- name: Install Node.js package
+  apt: pkg=nodejs update_cache=yes
+
+- name: Install Gulp via npm
+  npm: name=gulp global=yes
+
+# echo "\nConfiguring NPM..."
+# mkdir ~/npm-global
+# npm config set prefix '~/npm-global'
+# echo "export PATH=~/npm-global/bin:$PATH" >> ~/.profile
+# source ~/.profile

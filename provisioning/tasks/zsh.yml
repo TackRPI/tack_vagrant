@@ -1,0 +1,11 @@
+- name: Install ZSH
+  apt: pkg=zsh update_cache=yes
+
+- name: Download Oh My ZSH
+  shell: wget --no-check-certificate https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | sh
+
+- name: Configure Oh My ZSH
+  shell: chsh -s /bin/zsh vagrant
+
+- name: Set Oh My ZSH theme
+  shell: sed -i 's/ZSH_THEME="af-magic"/ZSH_THEME="af-magic"/g' ~/.zshrc
