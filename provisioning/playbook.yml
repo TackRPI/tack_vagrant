@@ -1,0 +1,16 @@
+- hosts: all
+  user: vagrant
+  sudo: true
+
+  tasks:
+    - name: Install packages
+      apt: name={{ item }} state=present update_cache=yes
+      with_items:
+        - build-essential
+        - git
+        - tmux
+
+    - include: tasks/mongodb.yml
+    - include: tasks/nodejs.yml
+    # - include: tasks/vagrant.yml
+    - include: tasks/zsh.yml
